@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surprise Website</title>
+  <style>
+    /* Inline CSS for clarity */
+
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #ffe6e6;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #333;
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #ff99cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ff66b2;
+    }
+
+    /* Initially hide the surprise */
+    #surprise {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .rose {
+      width: 150px;
+      height: auto;
+      animation: bloom 2s forwards;
+    }
+
+    /* Bloom animation */
+    @keyframes bloom {
+      from {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    #sorry-text {
+      font-size: 1.5rem;
+      color: red;
+      opacity: 0;
+      animation: fade-in 2s forwards;
+      animation-delay: 2s;
+    }
+
+    /* Fade-in animation */
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Are you my girlfriend?</h1>
+  <div>
+    <button id="yes-button">Yes</button>
+    <button id="no-button">No</button>
+  </div>
+
+  <!-- Surprise Section -->
+  <div id="surprise">
+    <img src="rose.jpg" alt="A blooming rose" class="rose">
+    <p id="sorry-text">I'm sorry</p>
+  </div>
+
+  <script>
+    // JavaScript to control visibility
+    document.addEventListener('DOMContentLoaded', () => {
+      const yesButton = document.getElementById('yes-button');
+      const noButton = document.getElementById('no-button');
+      const surprise = document.getElementById('surprise');
+
+      // Initially hide the surprise
+      surprise.style.display = 'none';
+
+      // When "Yes" is clicked, show the surprise
+      yesButton.addEventListener('click', () => {
+        surprise.style.display = 'block';
+      });
+
+      // When "No" is clicked, show an alert
+      noButton.addEventListener('click', () => {
+        alert('Oh no! 😢');
+      });
+    });
+  </script>
+</body>
+</html>
